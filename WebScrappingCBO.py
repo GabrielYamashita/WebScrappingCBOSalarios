@@ -52,5 +52,6 @@ data['Média Salarial'] = mediaSalarial
 # print(data)
 
 
-df = pd.DataFrame(data, index=None)
-df.to_excel('./CBO Salário.xlsx')
+df = pd.DataFrame(data).drop_duplicates(subset=['CBO'])
+
+df.to_excel('./CBO Salário2.xlsx')
