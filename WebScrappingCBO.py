@@ -1,11 +1,14 @@
 
+# Import de Bibliotecas
 import string
 import requests
 import pandas as pd
 from lxml import html
 
+# Letras do Alfabeto em Maiúsculo
 letters = list(string.ascii_uppercase)
 
+# Listas para Guardar os Dados
 CBO = []
 mediaSalarial = []
 
@@ -44,6 +47,7 @@ for letter in letters:
             # print("")
             # data['Média Salarial'] = item_text
 
+# Criando Dicionário
 data = {}
 
 data['CBO'] = CBO
@@ -51,7 +55,6 @@ data['Média Salarial'] = mediaSalarial
 
 # print(data)
 
-
+# Criando DataFrame
 df = pd.DataFrame(data).drop_duplicates(subset=['CBO'])
-
-df.to_excel('./CBO Salário2.xlsx')
+df.to_excel('./CBO Salário.xlsx')
